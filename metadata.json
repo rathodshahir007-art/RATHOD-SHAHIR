@@ -1,0 +1,6 @@
+{
+  "name": "NEWWAYS ENTERPRISE — Global Polymer Sourcing & Trading Network",
+  "description": "Premier Indian polymer trading, sourcing, and recycled plastic materials network connecting buyers, sellers, manufacturers, and global suppliers since 2012.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
