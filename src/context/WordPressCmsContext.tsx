@@ -59,6 +59,11 @@ export interface SiteSectionsData {
     title: string;
     subtitle: string;
   };
+  clientTrust: {
+    badge: string;
+    title: string;
+    subtitle: string;
+  };
   marketDesk: {
     badge: string;
     title: string;
@@ -137,6 +142,11 @@ const DEFAULT_SECTIONS: SiteSectionsData = {
     title: 'The Trusted Partner for Polymer Converters',
     subtitle: 'Built on 12+ years of refinery relationships, rigorous quality checking, and transparent port-to-factory logistics.',
   },
+  clientTrust: {
+    badge: 'ESTABLISHED AUTHORITY & CLIENT TRUST',
+    title: 'Client Trust & Industrial Partnerships',
+    subtitle: 'Supplying India\'s leading blow molders, extrusion units, injection molders, and packaging converters with reliable prime resins, off-grade lots, and certified regrinds since 2012.',
+  },
   marketDesk: {
     badge: 'LIVE MARKET DESK',
     title: 'Weekly Polymer Price Indications & Market Intelligence',
@@ -162,6 +172,7 @@ const DEFAULT_ORDER = [
   'sourcing',
   'tradeMap',
   'whyChoose',
+  'clientTrust',
   'shippingBanner',
   'marketDesk',
   'community'

@@ -7,6 +7,7 @@ import { BuySellSection } from '../components/BuySellSection';
 import { SourcingProcess } from '../components/SourcingProcess';
 import { TradeMap } from '../components/TradeMap';
 import { WhyChooseUs } from '../components/WhyChooseUs';
+import { ClientTrustSection } from '../components/ClientTrustSection';
 import { MarketDesk } from '../components/MarketDesk';
 import { PolymerProduct, MaterialCondition, PageId } from '../types';
 import { COMPANY_INFO } from '../data/polymerData';
@@ -148,7 +149,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         <WhyChooseUs />
       </WordPressSectionWrapper>
 
-      {/* 8. Panoramic Import-Export Container Ship Banner */}
+      {/* 8. Client Trust & Testimonial Slider (Since 2012 Authority) */}
+      <WordPressSectionWrapper
+        id="clientTrust"
+        name="Client Trust & Testimonial Slider"
+        category="Trust & Credibility"
+      >
+        <ClientTrustSection onOpenQuote={onOpenQuote} />
+      </WordPressSectionWrapper>
+
+      {/* 9. Panoramic Import-Export Container Ship Banner */}
       <WordPressSectionWrapper
         id="shippingBanner"
         name="Container Shipping Panoramic Banner"
