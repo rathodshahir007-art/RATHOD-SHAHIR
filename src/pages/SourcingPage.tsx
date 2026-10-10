@@ -266,6 +266,71 @@ export const SourcingPage: React.FC<SourcingPageProps> = ({ onOpenQuote, onSelec
         </div>
       </section>
 
+      {/* 13. SPECIALIZED SERVICES SECTION */}
+      <section className="py-16 md:py-20 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-sky-600">CORE SERVICES</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#0b1e36] mt-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Our Specialized Polymer Services
+            </h2>
+            <p className="text-slate-600 text-xs md:text-sm mt-2">
+              Comprehensive commercial, sourcing, documentation, and logistics services supporting high-volume polymer transactions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all hover:shadow-md">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block mb-1">SERVICE 01</span>
+              <h3 className="text-base font-extrabold text-slate-900">POLYMER SOURCING</h3>
+              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                Find suitable grades based on application, quantity and location.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all hover:shadow-md">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block mb-1">SERVICE 02</span>
+              <h3 className="text-base font-extrabold text-slate-900">TRADING</h3>
+              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                Connect buyers and sellers for domestic and imported polymer materials.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all hover:shadow-md">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block mb-1">SERVICE 03</span>
+              <h3 className="text-base font-extrabold text-slate-900">IMPORT & EXPORT</h3>
+              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                Support international sourcing and trade coordination.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all hover:shadow-md">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block mb-1">SERVICE 04</span>
+              <h3 className="text-base font-extrabold text-slate-900">LOGISTICS</h3>
+              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                Freight-forwarding and transportation coordination.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all hover:shadow-md">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block mb-1">SERVICE 05</span>
+              <h3 className="text-base font-extrabold text-slate-900">DOCUMENTATION</h3>
+              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                Support with commercial and trade documentation.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all hover:shadow-md">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block mb-1">SERVICE 06</span>
+              <h3 className="text-base font-extrabold text-slate-900">BUSINESS VERIFICATION</h3>
+              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                Supplier/buyer verification and business coordination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 6 Step Sourcing Process */}
       <SourcingProcess onOpenQuote={onOpenQuote} />
 

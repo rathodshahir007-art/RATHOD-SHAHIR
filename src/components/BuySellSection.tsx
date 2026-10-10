@@ -93,20 +93,20 @@ export const BuySellSection: React.FC = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="buy" className="py-16 md:py-24 bg-white border-b border-slate-200">
+      <div id="sell" className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider mb-3">
             <ShoppingBag className="w-3.5 h-3.5" />
-            <span>TRADE DESK SUBMISSIONS</span>
+            <span>DIRECT TRADING DESK</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b1e36] tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Buy Polymers or Liquidate Available Stock
+            Buy from Newways or Sell Through Our Network
           </h2>
           <p className="text-slate-600 text-sm md:text-base mt-2">
-            “Tell us what you need. Tell us what you have. Newways connects the two.”
+            “The right polymer. The right source. The right connection.”
           </p>
 
           {/* Dual Tab Switcher */}
@@ -119,7 +119,7 @@ export const BuySellSection: React.FC = () => {
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              Buy Polymers (Requirement)
+              4. BUY FROM NEWWAYS
             </button>
             <button
               onClick={() => setActiveTab('sell')}
@@ -129,14 +129,57 @@ export const BuySellSection: React.FC = () => {
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              Sell Your Polymer Stock
+              5. SELL THROUGH NEWWAYS
             </button>
           </div>
         </div>
 
         {/* Tab 1: BUY POLYMERS FORM */}
         {activeTab === 'buy' && (
-          <div className="max-w-4xl mx-auto bg-slate-50 rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm animate-in fade-in duration-200">
+          <div className="max-w-4xl mx-auto bg-slate-50 rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm animate-in fade-in duration-200 space-y-6">
+            {/* Header info matching brief 4 */}
+            <div className="p-5 rounded-2xl bg-sky-950 text-white border border-sky-800 space-y-3">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 block">
+                BUY FROM NEWWAYS
+              </span>
+              <h3 className="text-2xl font-black tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                LOOKING TO BUY POLYMER?
+              </h3>
+              <p className="text-slate-300 text-sm font-medium">
+                Tell us what you need.
+              </p>
+              
+              {/* Flow Sequence: Material → Grade → MFI → Application → Quantity → Location → Target Price */}
+              <div className="p-3 bg-sky-900/60 rounded-xl border border-sky-700/60 overflow-x-auto">
+                <div className="flex items-center gap-2 text-xs font-bold text-amber-300 whitespace-nowrap">
+                  <span>Material</span>
+                  <span className="text-slate-400">→</span>
+                  <span>Grade</span>
+                  <span className="text-slate-400">→</span>
+                  <span>MFI</span>
+                  <span className="text-slate-400">→</span>
+                  <span>Application</span>
+                  <span className="text-slate-400">→</span>
+                  <span>Quantity</span>
+                  <span className="text-slate-400">→</span>
+                  <span>Location</span>
+                  <span className="text-slate-400">→</span>
+                  <span className="text-emerald-300">Target Price</span>
+                </div>
+              </div>
+
+              {/* Exact Example Callout Box */}
+              <div className="bg-sky-900/40 p-3 rounded-xl border border-sky-700/40 text-xs text-slate-200 space-y-1">
+                <span className="text-[10px] font-bold text-cyan-300 uppercase tracking-widest block">EXAMPLE:</span>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 font-mono text-[11px]">
+                  <div><strong className="text-slate-400">Material:</strong> HDPE Blow Grade</div>
+                  <div><strong className="text-slate-400">MFI:</strong> 0.3</div>
+                  <div><strong className="text-slate-400">Quantity:</strong> 25 MT</div>
+                  <div><strong className="text-slate-400">Location:</strong> Ahmedabad</div>
+                  <div><strong className="text-slate-400">Target Price:</strong> ₹____</div>
+                </div>
+              </div>
+            </div>
             {buySuccessRef ? (
               <div className="text-center py-8 space-y-4">
                 <div className="w-16 h-16 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center mx-auto">
@@ -324,9 +367,9 @@ export const BuySellSection: React.FC = () => {
                   </p>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3 bg-sky-700 hover:bg-sky-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all"
+                    className="w-full sm:w-auto px-8 py-3 bg-sky-700 hover:bg-sky-600 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
-                    SUBMIT BUYING REQUIREMENT
+                    <span>SUBMIT BUYING REQUIREMENT →</span>
                   </button>
                 </div>
               </form>
@@ -336,7 +379,25 @@ export const BuySellSection: React.FC = () => {
 
         {/* Tab 2: SELL YOUR POLYMER STOCK FORM */}
         {activeTab === 'sell' && (
-          <div className="max-w-4xl mx-auto bg-slate-50 rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm animate-in fade-in duration-200">
+          <div className="max-w-4xl mx-auto bg-slate-50 rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm animate-in fade-in duration-200 space-y-6">
+            {/* Header info matching brief 5 */}
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-orange-950 to-slate-900 text-white border border-orange-800/80 space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400 block">
+                SELL THROUGH NEWWAYS
+              </span>
+              <h3 className="text-2xl font-black tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                HAVE POLYMER STOCK TO SELL?
+              </h3>
+              <p className="text-slate-200 text-sm font-medium">
+                Send your available stock to our trading network.
+              </p>
+              <div className="pt-1 text-xs text-amber-300 font-semibold flex items-center gap-2">
+                <span>Material • Grade • MFI • Quantity • Location • Packing • Offer Price • Photos / Video • COA</span>
+              </div>
+              <p className="text-[11px] text-slate-400 italic">
+                * Directly connected with hundreds of verified converters & manufacturers across India and global trade corridors.
+              </p>
+            </div>
             {sellSuccessRef ? (
               <div className="text-center py-8 space-y-4">
                 <div className="w-16 h-16 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mx-auto">
@@ -508,8 +569,25 @@ export const BuySellSection: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Photos / Video & COA checkboxes */}
+                <div className="p-3 bg-amber-50/60 rounded-xl border border-amber-200/80 flex flex-wrap items-center justify-between gap-3 text-xs text-amber-950">
+                  <div className="flex items-center gap-4">
+                    <label className="flex items-center gap-2 cursor-pointer font-semibold">
+                      <input type="checkbox" defaultChecked className="rounded text-orange-600 focus:ring-orange-500" />
+                      <span>Photos / Video Available</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer font-semibold">
+                      <input type="checkbox" defaultChecked className="rounded text-orange-600 focus:ring-orange-500" />
+                      <span>COA (Certificate of Analysis) Available</span>
+                    </label>
+                  </div>
+                  <span className="text-[11px] text-amber-800 italic">
+                    Can also be shared directly on WhatsApp after submission
+                  </span>
+                </div>
+
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Lot Notes & CoA Availability</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Lot Notes & Specification Details</label>
                   <textarea
                     rows={2}
                     value={sellNotes}
@@ -525,9 +603,9 @@ export const BuySellSection: React.FC = () => {
                   </p>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-orange-600/30 transition-all"
+                    className="w-full sm:w-auto px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-orange-600/30 transition-all flex items-center justify-center gap-1.5"
                   >
-                    SUBMIT AVAILABLE STOCK
+                    <span>SUBMIT YOUR STOCK →</span>
                   </button>
                 </div>
               </form>

@@ -11,9 +11,9 @@ import {
 export const COMPANY_INFO = {
   name: 'NEWWAYS ENTERPRISE',
   brandConcept: 'NEWWAYS POLYMER NETWORK',
-  tagline: 'Your Global Polymer Sourcing & Trading Network',
+  tagline: 'The right polymer. The right source. The right connection.',
   slogan: 'BUY • SELL • SOURCE • CONNECT',
-  subTagline: 'Trusted Recycling. Seamless Global Delivery.',
+  subTagline: 'Prime | Near Prime | Off-Grade | Recycled',
   brandMessage: 'Tell us what you need. Tell us what you have. Newways connects the two.',
   establishedYear: 2012,
   address: {
@@ -28,8 +28,9 @@ export const COMPANY_INFO = {
   whatsappUrl: 'https://chat.whatsapp.com/J06KN8bw9hPG1eCZg9ZKtU',
   directWhatsapp: 'https://wa.me/919879747777',
   email: 'info@newways.in',
-  domain: 'www.newways.in',
-  websiteUrl: 'https://www.newways.in',
+  domain: 'www.newways.co.in',
+  alternateDomain: 'www.newways.in',
+  websiteUrl: 'https://www.newways.co.in',
 };
 
 export const POLYMER_PRODUCTS: PolymerProduct[] = [
@@ -564,38 +565,38 @@ export const IMPORT_OPPORTUNITIES: ImportOpportunity[] = [
 export const HOW_IT_WORKS_STEPS = [
   {
     step: 1,
-    title: 'Share Your Requirement',
-    desc: 'Specify your polymer category, required grade, target MFI, volume (MT), delivery location, and target pricing.',
+    title: 'SHARE YOUR REQUIREMENT',
+    desc: 'Tell us material, grade, MFI, quantity and location.',
     icon: 'FileText',
   },
   {
     step: 2,
-    title: 'Source Suitable Material',
-    desc: 'We search our domestic stockist network, refinery surpluses, and trusted international import pipelines.',
+    title: 'SOURCE & VERIFY',
+    desc: 'We identify suitable supply opportunities.',
     icon: 'Search',
   },
   {
     step: 3,
-    title: 'Verify Specifications & Availability',
-    desc: 'Technical specs, MFI verification, sample matching, and live warehouse inventory status are confirmed.',
-    icon: 'ShieldCheck',
-  },
-  {
-    step: 4,
-    title: 'Compare Prices & Commercial Terms',
-    desc: 'Receive transparent quotations across ex-depot, CFR, and delivery options with clear commercial terms.',
+    title: 'COMPARE OPTIONS',
+    desc: 'Review specification, price, location, freight and commercial terms.',
     icon: 'Scale',
   },
   {
+    step: 4,
+    title: 'NEGOTIATE & CLOSE',
+    desc: 'Buyer and seller discuss and finalize the transaction.',
+    icon: 'ShieldCheck',
+  },
+  {
     step: 5,
-    title: 'Coordinate Trading & Logistics',
-    desc: 'We assist with container bookings, port clearance, GST invoicing, documentation, and safe transport dispatch.',
+    title: 'LOGISTICS & DELIVERY',
+    desc: 'Support with dispatch, freight and documentation.',
     icon: 'Truck',
   },
   {
     step: 6,
-    title: 'Build Repeat Supply Relationships',
-    desc: 'Establish dependable monthly allocations, predictable feedstock flow, and continuous trading support.',
+    title: 'REPEAT SUPPLY',
+    desc: 'Build recurring business relationships.',
     icon: 'RefreshCw',
   },
 ];

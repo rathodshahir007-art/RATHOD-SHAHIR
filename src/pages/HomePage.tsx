@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Hero } from '../components/Hero';
+import { CurrentRequirements } from '../components/CurrentRequirements';
 import { MaterialRangeCards } from '../components/MaterialRangeCards';
 import { PolymerCatalog } from '../components/PolymerCatalog';
 import { BuySellSection } from '../components/BuySellSection';
@@ -34,6 +35,16 @@ export const HomePage: React.FC<HomePageProps> = ({
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleScrollToBuy = () => {
+    const el = document.getElementById('buy');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScrollToSell = () => {
+    const el = document.getElementById('sell');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="space-y-0">
       {/* 1. Hero Section */}
@@ -49,11 +60,26 @@ export const HomePage: React.FC<HomePageProps> = ({
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
           onRequestQuote={() => onOpenQuote('quote')}
+          onBuyPolymers={handleScrollToBuy}
+          onSellStock={handleScrollToSell}
+          onJoinNetwork={() => window.open(companyInfo.whatsappUrl, '_blank')}
           onFilterCondition={handleConditionSelect}
         />
       </WordPressSectionWrapper>
 
-      {/* 2. Material Range Cards: Prime, Non-Prime / Off-Grade, and Recycled */}
+      {/* 2. CURRENT REQUIREMENTS (Dynamic Section: 5601 / 5603, PE100 Regrind, HDPE Milk Bottle, HDPE 200L Regrind) */}
+      <WordPressSectionWrapper
+        id="requirements"
+        name="Current Polymer Requirements (Live & Dynamic)"
+        category="Trade Desk"
+      >
+        <CurrentRequirements
+          onOpenRequirementModal={(material) => onOpenQuote('buy', material || 'Polymer 5601 / 5603')}
+          onHaveStockOffer={(material) => onOpenQuote('sell', material)}
+        />
+      </WordPressSectionWrapper>
+
+      {/* 3. Material Range Cards: Prime, Non-Prime / Off-Grade, and Recycled */}
       <WordPressSectionWrapper
         id="materialRange"
         name="Material Range (Prime / Off-Grade / Recycled)"

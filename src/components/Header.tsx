@@ -50,20 +50,50 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks: { id: PageId; label: string; isDropdown?: boolean }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'products', label: 'Polymers', isDropdown: true },
-    { id: 'sourcing', label: 'Sourcing & Trading' },
-    { id: 'network', label: 'Network' },
-    { id: 'market-updates', label: 'Market Updates' },
-    { id: 'contact', label: 'Contact' },
+  const navLinks: { id: string; label: string; isDropdown?: boolean }[] = [
+    { id: 'home', label: 'HOME' },
+    { id: 'buy', label: 'BUY POLYMERS' },
+    { id: 'sell', label: 'SELL POLYMERS' },
+    { id: 'products', label: 'PRODUCTS', isDropdown: true },
+    { id: 'requirements', label: 'REQUIREMENTS' },
+    { id: 'market-updates', label: 'MARKET UPDATES' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'contact', label: 'CONTACT' },
   ];
 
-  const handleNavClick = (id: PageId) => {
-    onNavigate(id);
+  const handleNavClick = (id: string) => {
     setIsMobileMenuOpen(false);
     setIsPolymerDropdownOpen(false);
+
+    if (id === 'buy' || id === 'sell') {
+      if (currentPage !== 'home') {
+        onNavigate('home');
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    if (id === 'requirements') {
+      if (currentPage !== 'home') {
+        onNavigate('home');
+        setTimeout(() => {
+          const el = document.getElementById('requirements');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const el = document.getElementById('requirements');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    onNavigate(id as PageId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

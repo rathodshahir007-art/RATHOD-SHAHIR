@@ -81,13 +81,13 @@ export const ContactPage: React.FC = () => {
             
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950 border border-sky-700/60 text-cyan-400 text-xs font-semibold">
-                <span>Home / Contact Us</span>
+                <span>NEWWAYS ENTERPRISE • Polymer Trading • Import • Export • Recycling</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                Let's Connect and Trade Polymers
+                LET'S TRADE POLYMERS
               </h1>
               <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                We are here to help! Whether you have a product inquiry, need sourcing support, or want to explore new trading opportunities — get in touch with our team in Surendranagar, Gujarat.
+                Have a requirement? Have stock to sell? Looking for an import opportunity? Contact Newways.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-sky-300">
                 <span>🚢 Port Cleared Lots</span>

@@ -18,12 +18,18 @@ import { useWordPressCms } from '../context/WordPressCmsContext';
 interface HeroProps {
   onExploreProducts: () => void;
   onRequestQuote: () => void;
+  onBuyPolymers?: () => void;
+  onSellStock?: () => void;
+  onJoinNetwork?: () => void;
   onFilterCondition?: (condition: MaterialCondition) => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   onExploreProducts,
   onRequestQuote,
+  onBuyPolymers,
+  onSellStock,
+  onJoinNetwork,
   onFilterCondition,
 }) => {
   const { sections, companyInfo, isEditMode, openSectionEditor } = useWordPressCms();
@@ -66,6 +72,30 @@ export const Hero: React.FC<HeroProps> = ({
 
   const currentVisual = heroVisuals[activeVisual];
 
+  const handleBuyClick = () => {
+    if (onBuyPolymers) {
+      onBuyPolymers();
+    } else {
+      onRequestQuote();
+    }
+  };
+
+  const handleSellClick = () => {
+    if (onSellStock) {
+      onSellStock();
+    } else {
+      onRequestQuote();
+    }
+  };
+
+  const handleJoinClick = () => {
+    if (onJoinNetwork) {
+      onJoinNetwork();
+    } else {
+      window.open(companyInfo.whatsappUrl, '_blank');
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-[#07162c] text-white">
       {/* Background Graphic Effects & Atmospheric Glow */}
@@ -94,35 +124,54 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-600/50 text-cyan-300 text-xs font-semibold tracking-wide">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                <span>{sections.hero.badge}</span>
+                <span>NEWWAYS POLYMER NETWORK</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-slate-300 text-xs font-medium">
-                Est. {companyInfo.establishedYear} in {companyInfo.address.city}, India
+                Est. {companyInfo.establishedYear} • Gujarat, India
               </span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-2">
               <h1 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                {sections.hero.headline}
+                POLYMER TRADING & SOURCING NETWORK
               </h1>
-              <p className="text-amber-400/90 text-sm md:text-base font-semibold tracking-wider uppercase">
-                {companyInfo.slogan}
+              <p className="text-amber-400 text-sm md:text-base font-bold tracking-widest uppercase flex items-center gap-2">
+                <span>Buy • Sell • Source • Connect</span>
               </p>
             </div>
 
-            {/* Subheading */}
-            <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl">
-              {sections.hero.subheadline}
-            </p>
+            {/* Materials Ticker Line (PP | PPCP | HDPE | LDPE | LLDPE | PET | PVC | ABS) */}
+            <div className="bg-sky-950/60 border border-sky-800/80 rounded-xl px-4 py-2.5 backdrop-blur-sm">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                CORE TRADING POLYMERS:
+              </span>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs md:text-sm font-bold text-cyan-300">
+                <span>PP</span>
+                <span className="text-slate-600">|</span>
+                <span>PPCP</span>
+                <span className="text-slate-600">|</span>
+                <span>HDPE</span>
+                <span className="text-slate-600">|</span>
+                <span>LDPE</span>
+                <span className="text-slate-600">|</span>
+                <span>LLDPE</span>
+                <span className="text-slate-600">|</span>
+                <span>PET</span>
+                <span className="text-slate-600">|</span>
+                <span>PVC</span>
+                <span className="text-slate-600">|</span>
+                <span>ABS</span>
+              </div>
+            </div>
 
-            {/* Material Conditions Pill Row */}
+            {/* Material Conditions Row: Prime | Near Prime | Off-Grade | Recycled */}
             <div className="pt-1">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                Available Material Conditions:
+                GRADES & CONDITIONS:
               </span>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -130,7 +179,6 @@ export const Hero: React.FC<HeroProps> = ({
                   { name: 'Near Prime', color: 'bg-blue-500/20 text-blue-300 border-blue-500/40' },
                   { name: 'Off-Grade', color: 'bg-orange-500/20 text-orange-300 border-orange-500/40' },
                   { name: 'Recycled', color: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' },
-                  { name: 'Regrind', color: 'bg-teal-500/20 text-teal-300 border-teal-500/40' },
                 ].map((item) => (
                   <button
                     key={item.name}
@@ -143,33 +191,35 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
 
-            {/* Primary Action Buttons */}
+            {/* Subheading / Tagline */}
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl italic font-serif">
+              “The right polymer. The right source. The right connection.”
+            </p>
+
+            {/* Primary Action Buttons: [ BUY POLYMERS ] [ SELL YOUR STOCK ] [ JOIN POLYMER NETWORK ] */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
-                onClick={onExploreProducts}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-orange-600/30 transition-all transform hover:-translate-y-0.5"
+                onClick={handleBuyClick}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-sky-600/30 transition-all transform hover:-translate-y-0.5"
               >
-                <span>{sections.hero.ctaPrimaryText}</span>
+                <span>BUY POLYMERS</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
-                onClick={onRequestQuote}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider border border-slate-700 shadow-md transition-all hover:border-sky-400"
+                onClick={handleSellClick}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-orange-600/30 transition-all transform hover:-translate-y-0.5"
               >
-                <span>{sections.hero.ctaSecondaryText}</span>
+                <span>SELL YOUR STOCK</span>
               </button>
 
-              <a
-                href={companyInfo.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider transition-all"
+              <button
+                onClick={handleJoinClick}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span className="hidden sm:inline">Join WhatsApp Network</span>
-                <span className="sm:hidden">WhatsApp</span>
-              </a>
+                <MessageSquare className="w-4 h-4 fill-current" />
+                <span>JOIN POLYMER NETWORK</span>
+              </button>
             </div>
 
             {/* Micro-Features Bar & Trust Numbers */}
